@@ -1,0 +1,10 @@
+/* Define the animation */
+@keyframes name-animation {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Apply the animation to the element with the "my-name" ID */
+#my-name {
+  animation: name-animation 2s infinite linear;
+}
