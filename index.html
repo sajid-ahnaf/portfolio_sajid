@@ -40,6 +40,32 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   </a>
 </nav>
 
+<script>
+  function isElementInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  var elementsToShow = document.querySelectorAll('.animated');
+  function loop() {
+    Array.prototype.forEach.call(elementsToShow, function(element) {
+      if (isElementInViewport(element)) {
+        element.classList.add('in');
+      } else {
+        element.classList.remove('in');
+      }
+    });
+    requestAnimationFrame(loop);
+  }
+  loop();
+</script>
+
+
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
@@ -54,21 +80,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo">
-  <span class="w3-hide-small w3-animate-top">S</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.1s">A</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.2s">J</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.3s">I</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.4s">D</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.5s"> </span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.6s">H</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.7s">A</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.8s">S</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 0.9s">A</span>
-  <span class="w3-hide-small w3-animate-top" style="animation-delay: 1.0s">N</span>
-</h1>
-
-    <p>Enthusiastic Engineer and Full Stack Developer</p>
+    <h1 class="w3-jumbo animated"><span class="w3-hide-small">I'm</span> Sajid Hasan</h1>
+    <p>Enthusiastic Engineer and Web Designer</p>
     <img src="https://res.cloudinary.com/dbtnozpeg/image/upload/v1678131240/photo_2023-03-07_01-32-25_g6ipec.jpg" alt="Our Achievements!" class="w3-image" width="992" height="1108">
   </header>
 
@@ -233,5 +246,5 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 <!-- END PAGE CONTENT -->
 </div>
 
-</body> 
+</body>
 </html>
